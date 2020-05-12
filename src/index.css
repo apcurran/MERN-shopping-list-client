@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.header {
+  padding: 1.5rem 0;
+  background-color: #2d3748;
+  color: #fefefe;
+}
+
+.nav {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.nav__logo {
+  display: inline-block;
+  font-size: 1.5rem;
+  letter-spacing: .06em;
+}
+
+.main {
+  max-width: 40rem;
+  margin: 2rem auto;
+}
+
+.form {
+  max-width: 15rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group__input {
+  padding: .5rem;
+  margin-bottom: .5rem;
+  border-radius: 4px;
+  border: 1.5px solid #eee;
+  outline: none;
+}
+
+.form-group__input:focus {
+  border-bottom-color: #90cdf4;
+  border-right-color: #90cdf4;
+}
+
+.form-group__submit {
+  margin: .5rem 0;
+  padding: .65rem 1.15rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #2a4365;
+  color: #fefefe;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  cursor: pointer;
+}
+
+.shopping-list {
+  margin: 2rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .175);
+  border-radius: 10px;
+}
+
+.shopping-list__item {
+  padding: .5rem 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.shopping-list__item:not(:last-of-type) {
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.shopping-list__item:nth-of-type(even) {
+  background-color: #F7FAFC;
+}
+
+.shopping-list__item:last-of-type {
+  border-radius: 0 0 10px 10px;
+}
+
+.shopping-list__item__delete {
+  display: inline-flex;
+  margin-right: .5rem;
+  padding: .25rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.delete-icon {
+  width: 1.25rem;
+  opacity: .6;
+}
+
+.shopping-list__item__delete:hover .delete-icon {
+  opacity: 1;
+}
