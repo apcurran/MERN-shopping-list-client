@@ -9,19 +9,18 @@ export default function AppNavbar() {
                     Shop 2000
                 </Link>
                 <ul className="nav__list">
-                    <li className="nav__item">
-                        <Link to="/user/list" className="nav__link">
-                            Your List
-                        </Link>
-                    </li>
+                    {localStorage.getItem("authToken") ? (
+                        <li className="nav__item">
+                            <Link to="/user/list" className="nav__link">
+                                Your List
+                            </Link>
+                        </li>
+                    ) : (
+                        null
+                    )}
                     <li className="nav__item">
                         <Link to="/user/login" className="nav__link">
                             Log In
-                        </Link>
-                    </li>
-                    <li className="nav__item">
-                        <Link to="/user/logout" className="nav__link">
-                            Log Out
                         </Link>
                     </li>
                 </ul>

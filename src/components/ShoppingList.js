@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import Axios from "axios";
 import trashIcon from "../images/icon-trash.svg";
+import Logout from "./Logout";
 
 export default function ShoppingList() {
     const [items, setItems] = useState([]);
@@ -11,7 +12,7 @@ export default function ShoppingList() {
         async function fetchItems() {
             try {
                 // Make req to API
-                const result = await axios("/api/items");
+                const result = await Axios("/api/items");
 
                 setItems(result.data);
             } catch (err) {
@@ -32,7 +33,7 @@ export default function ShoppingList() {
 
         try {
             // Make req to API
-            const addedItem = await axios.post("/api/items", newItem);
+            const addedItem = await Axios.post("/api/items", newItem);
 
             setItems([
                 ...items,
@@ -50,7 +51,7 @@ export default function ShoppingList() {
             setItems(items.filter(item => item._id !== id));
             
             // Make req to API
-            await axios.delete(`/api/items/${id}`);
+            await Axios.delete(`/api/items/${id}`);
         } catch (err) {
             console.error(err);
         }
@@ -84,6 +85,7 @@ export default function ShoppingList() {
                     </li>
                 ))}
             </ul>
+            <Logout />
         </main>
     );
 }
