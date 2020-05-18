@@ -14,10 +14,11 @@ export default function LoginForm() {
             if (!triggerCall) return; // Only run hook on triggering form submit
 
             const API_URL = "/api/user/login";
-
             const options = {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json"
+                },
                 body: JSON.stringify({
                   email,
                   password

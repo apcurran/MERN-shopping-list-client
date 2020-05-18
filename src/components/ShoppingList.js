@@ -13,9 +13,19 @@ export default function ShoppingList() {
         async function fetchItems() {
             try {
                 // Make req to API
-                const result = await Axios("/api/items");
+                const API_URL = "/api/items";
+                const options = {
+                    method: "GET",
+                    headers: {
+                        authorization: `Bearer ${localStorage.authToken}`,
+                        "Content-Type": "application/json"
+                    }
+                };
 
-                setItems(result.data);
+                const result = await fetch(API_URL, options);
+                const data = await result.json();
+
+                setItems(data);
             } catch (err) {
                 console.error(err);
             }
@@ -28,17 +38,26 @@ export default function ShoppingList() {
     async function handleSubmitItem(event) {
         event.preventDefault();
 
-        const newItem = {
-            name: name
-        }
+        const API_URL = "/api/items";
+        const options = {
+            method: "POST",
+            headers: {
+                authorization: `Bearer ${localStorage.authToken}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              name: name
+            })
+        };
 
         try {
             // Make req to API
-            const addedItem = await Axios.post("/api/items", newItem);
+            const result = await fetch(API_URL, options);
+            const addedItem = await result.json();
 
             setItems([
                 ...items,
-                addedItem.data
+                addedItem
             ]);
 
             setName(""); // Clear input
@@ -50,9 +69,18 @@ export default function ShoppingList() {
     async function deleteItem(id) {
         try {
             setItems(items.filter(item => item._id !== id));
-            
+
             // Make req to API
-            await Axios.delete(`/api/items/${id}`);
+            const API_URL = `/api/items/${id}`;
+            const options = {
+                method: "DELETE",
+                headers: {
+                    authorization: `Bearer ${localStorage.authToken}`,
+                    "Content-Type": "application/json"
+                }
+            };
+            
+            await fetch(API_URL, options);
         } catch (err) {
             console.error(err);
         }

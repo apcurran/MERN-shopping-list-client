@@ -15,7 +15,6 @@ export default function SignupForm() {
             if (!triggerCall) return; // Only trigger on form submit
 
             const API_URL = "/api/user/register";
-
             const options = {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
