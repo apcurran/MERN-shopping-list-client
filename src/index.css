@@ -142,7 +142,6 @@ ul {
 .logout-group {
   display: flex;
   align-items: center;
-  cursor: pointer;
 }
 
 .logout-icon {
@@ -159,7 +158,6 @@ ul {
   opacity: .65;
 }
 
-.logout-group:hover .logout-icon,
-.logout-group:hover .logout-btn {
+.logout-btn:hover {
   opacity: 1;
 }

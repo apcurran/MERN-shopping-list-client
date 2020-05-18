@@ -14,9 +14,9 @@ export default function Logout() {
     }
 
     return (
-        <div onClick={handleLogout} className="logout-group">
+        <div className="logout-group">
            <img src={logoutIcon} alt="Log out icon" className="logout-icon"/>
-           <button className="logout-btn">Log Out</button> 
+           <button onClick={handleLogout} className="logout-btn">Log Out</button> 
         </div>
     )
 }

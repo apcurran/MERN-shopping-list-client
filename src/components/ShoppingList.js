@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
-import Axios from "axios";
 import trashIcon from "../images/icon-trash.svg";
 import Logout from "./Logout";
 
