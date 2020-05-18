@@ -30,8 +30,8 @@ export default function LoginForm() {
                 const data = await response.json();
                 
                 // Return from function if an error has been set
-                if (data.hasOwnProperty("message")) {
-                    setError(data.message);
+                if (data.hasOwnProperty("error")) {
+                    setError(data.error);
                     setTriggerCall(false);
 
                     return;
