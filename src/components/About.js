@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function About() {
     return (
-        <div>
+        <main className="main">
             <h1>Create Personalized Shopping Lists</h1>
-        </div>
+        </main>
     )
 }

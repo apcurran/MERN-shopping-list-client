@@ -5,7 +5,7 @@ export default function AppNavbar() {
     const [haveToken, setHaveToken] = useState(false);
 
     useEffect(() => {
-        if (localStorage.getItem("authToken")) {
+        if (localStorage.authToken) {
             setHaveToken(true);
         }
     }, [haveToken]);
