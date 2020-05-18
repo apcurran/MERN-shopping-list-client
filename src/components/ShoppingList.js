@@ -7,12 +7,11 @@ export default function ShoppingList() {
     const [items, setItems] = useState([]);
     const [name, setName] = useState("");
 
-
     useEffect(() => {
         async function fetchItems() {
             try {
                 // Make req to API
-                const API_URL = "/api/items";
+                const API_URL = "/api/user/items";
                 const options = {
                     method: "GET",
                     headers: {
@@ -37,7 +36,7 @@ export default function ShoppingList() {
     async function handleSubmitItem(event) {
         event.preventDefault();
 
-        const API_URL = "/api/items";
+        const API_URL = "/api/user/items";
         const options = {
             method: "POST",
             headers: {
@@ -70,7 +69,7 @@ export default function ShoppingList() {
             setItems(items.filter(item => item._id !== id));
 
             // Make req to API
-            const API_URL = `/api/items/${id}`;
+            const API_URL = `/api/user/items/${id}`;
             const options = {
                 method: "DELETE",
                 headers: {
