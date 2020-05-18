@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 
-export default function LoginForm() {
+export default function SignupForm() {
+    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [triggerCall, setTriggerCall] = useState(false);
@@ -11,14 +12,15 @@ export default function LoginForm() {
 
     useEffect(() => {
         async function fetchData() {
-            if (!triggerCall) return; // Only run hook on triggering form submit
+            if (!triggerCall) return; // Only trigger on form submit
 
-            const API_URL = "/api/user/login";
+            const API_URL = "/api/user/register";
 
             const options = {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
+                  name,
                   email,
                   password
                 })
@@ -37,11 +39,8 @@ export default function LoginForm() {
                     return;
                 }
 
-                const token = data;
-    
-                localStorage.setItem("authToken", token);
                 setTriggerCall(false); // Reset trigger
-                history.push("/user/list");
+                history.push("/user/login");
     
             } catch (err) {
                 setTriggerCall(false); // Reset trigger
@@ -64,6 +63,16 @@ export default function LoginForm() {
           {error ? (
               <h3 className="form__error">{error}</h3>
           ) : null }
+          <div className="form-group">
+              <label htmlFor="login-name" className="form-group__label">Name</label>
+              <input
+                onChange={(event) => setName(event.target.value)}
+                type="text"
+                id="login-name"
+                name="login-name"
+                className="form-group__input"
+              />
+          </div>
           <div className="form-group">
               <label htmlFor="login-email" className="form-group__label">Email</label>
               <input
