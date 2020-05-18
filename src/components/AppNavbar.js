@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
 export default function AppNavbar() {
+    const [haveToken, setHaveToken] = useState(false);
+
+    useEffect(() => {
+        if (localStorage.getItem("authToken")) {
+            setHaveToken(true);
+        }
+    }, [haveToken]);
+
     return (
         <header className="header">
             <nav className="nav">
@@ -9,7 +17,7 @@ export default function AppNavbar() {
                     Shop 2000
                 </Link>
                 <ul className="nav__list">
-                    {localStorage.getItem("authToken") ? (
+                    {haveToken ? (
                         <li className="nav__item">
                             <Link to="/user/list" className="nav__link">
                                 Your List

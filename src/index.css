@@ -95,7 +95,7 @@ ul {
 
 .shopping-list {
   margin: 2rem 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .175);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .175);
   border-radius: 10px;
 }
 
@@ -132,5 +132,30 @@ ul {
 }
 
 .shopping-list__item__delete:hover .delete-icon {
+  opacity: 1;
+}
+
+.logout-group {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logout-icon {
+  width: 1.5rem;
+  opacity: .6;
+}
+
+.logout-btn {
+  padding: .5rem;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 1rem;
+  opacity: .65;
+}
+
+.logout-group:hover .logout-icon,
+.logout-group:hover .logout-btn {
   opacity: 1;
 }

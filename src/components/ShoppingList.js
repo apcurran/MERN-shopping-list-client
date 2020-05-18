@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Redirect } from "react-router-dom";
 import Axios from "axios";
 import trashIcon from "../images/icon-trash.svg";
 import Logout from "./Logout";
@@ -55,6 +56,11 @@ export default function ShoppingList() {
         } catch (err) {
             console.error(err);
         }
+    }
+
+    // Auth route guard
+    if (!localStorage.getItem("authToken")) {
+        return <Redirect to="/user/login" />
     }
 
     return (
